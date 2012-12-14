@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="lib/zinedine.js"></script>
+<!-- <script type="text/javascript" src="lib/extend_canvas_circle.js"></script> -->
+<!-- <script type="text/javascript" src="lib/sylvester.js"></script> -->
+<!-- <script type="text/javascript" src="lib/Tween.js"></script> -->
+<title>HTML5 Game</title>
+
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+
+<canvas width="500" height="500" id="cnvs"></canvas>
+
+<script type="text/javascript">
+var res;
+
+var preLoad = function() {
+
+};
+
+var postLoad = function() {
+
+};
+
+var start = function() {
+	postLoad();
+	console.log("Start!");
+	var ctx = document.getElementById("cnvs").getContext('2d');
+
+	game = {};
+	game.update = function() {};
+	game.draw = function() {};
+
+	// update loop
+	var updateFunc;
+	updateFunc = function() {
+		game.update();
+		game.draw();
+		window.webkitRequestAnimationFrame(updateFunc, 1000/30);
+	};
+
+	updateFunc();
+};
+
+load = function() {
+	Zinedine.init();
+
+	preLoad();
+	
+	// ressources
+	res = RessourceLoader("");
+	res.load("local", {}, start, function(item, res) {
+		if(item.ready) {
+			console.log("Loaded: " + item.path);
+		}
+	}, function(item) {
+		console.log("Error: " + item.path);
+	});
+};
+
+if(Zinedine.hasAPI()) {
+	load();
+} else {
+	alert("No Web Audio API, Sorry!");
+};
+
+</script>
+</body>
+</html>

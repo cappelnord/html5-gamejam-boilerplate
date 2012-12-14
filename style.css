@@ -1,0 +1,15 @@
+p {
+	line-height: 140%;
+}
+
+html {
+	background: #222222;
+	color: white;
+}
+a {
+	color: white;
+}
+
+a:hover {
+	color: #444444;
+}
