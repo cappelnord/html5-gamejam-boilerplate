@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
 <body>
-
-<canvas width="500" height="500" id="cnvs"></canvas>
+<div id="cnvs-container">
+<canvas width="800" height="600" id="cnvs"></canvas>
+</div>
 
 <script type="text/javascript">
 var res;
@@ -28,21 +29,26 @@ var postLoad = function() {
 var start = function() {
 	postLoad();
 	console.log("Start!");
-	var ctx = document.getElementById("cnvs").getContext('2d');
+	var canvas = document.getElementById("cnvs");
+	var ctx = canvas.getContext('2d');
 
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	// replace with proper game object
 	game = {};
 	game.update = function() {};
 	game.draw = function() {};
 
 	// update loop
-	var updateFunc;
-	updateFunc = function() {
+	var gameLoopFunc;
+	gameLoopFunc = function() {
 		game.update();
 		game.draw();
 		window.webkitRequestAnimationFrame(updateFunc, 1000/30);
 	};
 
-	updateFunc();
+	gameLoopFunc();
 };
 
 load = function() {
