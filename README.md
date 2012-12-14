@@ -9,3 +9,9 @@ Uses the following:
 * [jQuery](http://jquery.com) for stuff
 * [Tween.js](http://www.createjs.com/#!/TweenJS) for tweens
 * [Sylvester](http://sylvester.jcoglan.com) for vector/matrix math
+* [Canvas Circle Extensions](http://webreflection.blogspot.de/2009/01/ellipse-and-circle-for-canvas-2d.html) for easy circles/ellipses
+
+My contributions:
+* Some base code.
+* Canvas extension to draw images centered
+* Zinedine (which I hopefully will release someday)
