@@ -45,7 +45,7 @@ var start = function() {
 	gameLoopFunc = function() {
 		game.update();
 		game.draw();
-		window.webkitRequestAnimationFrame(updateFunc, 1000/30);
+		window.webkitRequestAnimationFrame(gameLoopFunc, 1000/30);
 	};
 
 	gameLoopFunc();
@@ -57,7 +57,7 @@ load = function() {
 	preLoad();
 	
 	// ressources
-	res = RessourceLoader("");
+	res = ResourceLoader("");
 	res.load("local", {}, start, function(item, res) {
 		if(item.ready) {
 			console.log("Loaded: " + item.path);
